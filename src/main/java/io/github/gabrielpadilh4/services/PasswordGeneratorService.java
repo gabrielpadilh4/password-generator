@@ -14,13 +14,10 @@ public class PasswordGeneratorService {
 
     public static void generatePassword(PasswordGeneratorCliParameters parameters) {
         String characters = getCharacters(parameters);
-
-        int charactersSize = characters.length();
-
         StringBuilder generatedPassword = new StringBuilder();
 
         for (int i = 0; i < parameters.getPasswordLength(); i++) {
-            int index = (int) (Math.random() * charactersSize);
+            int index = (int) (Math.random() * characters.length());
             generatedPassword.append(characters.charAt(index));
         }
 
